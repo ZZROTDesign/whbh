@@ -22,20 +22,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //let icon = NSImage(named: "menuIcon")
         if let button = statusItem.button {
             button.image = NSImage(named: "menuIcon")
-            button.action = #selector(AppDelegate.showMenu(_:))
+            button.action = #selector(AppDelegate.togglePopover(_:))
         }
         
+        popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
+        
+        /*
+        // Menu options -- pre popover
         let menu = NSMenu()
         
         menu.addItem(NSMenuItem(title: "Start timer", action: #selector(AppDelegate.showMenu(_:)), keyEquivalent: "P"))
         menu.addItem(NSMenuItem.separatorItem())
         menu.addItem(NSMenuItem(title: "Quit WHBH", action: #selector(NSTask.terminate), keyEquivalent: "q"))
         statusItem.menu = menu
+        */
     }
     
     func showMenu(sender: AnyObject) {
         let text = "Testing console output"
         print("\(text)")
+    }
+    
+    func showPopover(sender: AnyObject?) {
+        if let button = statusItem.button {
+            popover.showRelativeToRect(button.bounds, ofView: button, preferredEdge: NSRectEdge.MinY)
+        }
+    }
+    
+    func closePopover(sender: AnyObject?) {
+        popover.performClose(sender)
+    }
+    
+    func togglePopover(sender: AnyObject?) {
+        if popover.shown {
+            closePopover(sender)
+        }
+        else {
+            showPopover(sender)
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
