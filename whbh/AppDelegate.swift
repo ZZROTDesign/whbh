@@ -15,15 +15,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
-
+    
+    let popover = NSPopover()
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let icon = NSImage(named: "menuIcon")
-        //icon?.template = true //Used for dark themes, not working
+        //let icon = NSImage(named: "menuIcon")
+        if let button = statusItem.button {
+            button.image = NSImage(named: "menuIcon")
+            button.action = #selector(AppDelegate.showMenu(_:))
+        }
         
-        statusItem.image = icon
-        statusItem.menu = statusMenu
+        let menu = NSMenu()
         
+        menu.addItem(NSMenuItem(title: "Start timer", action: #selector(AppDelegate.showMenu(_:)), keyEquivalent: "P"))
+        menu.addItem(NSMenuItem.separatorItem())
+        menu.addItem(NSMenuItem(title: "Quit WHBH", action: #selector(NSTask.terminate), keyEquivalent: "q"))
+        statusItem.menu = menu
+    }
+    
+    func showMenu(sender: AnyObject) {
+        let text = "Testing console output"
+        print("\(text)")
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
@@ -32,6 +44,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     
     @IBAction func menuClicked(sender: NSMenuItem) {
+        let task = NSTask()
+        task.launchPath = "/usr/bin/defaults"
+        
         
     }
 

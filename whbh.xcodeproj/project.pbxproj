@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C38C06181CF5126800BE145B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C06161CF5126800BE145B /* MainViewController.swift */; };
+		C38C06191CF5126800BE145B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C06161CF5126800BE145B /* MainViewController.swift */; };
+		C38C061A1CF5126800BE145B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38C06161CF5126800BE145B /* MainViewController.swift */; };
+		C38C061B1CF5126800BE145B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38C06171CF5126800BE145B /* MainViewController.xib */; };
+		C38C061C1CF5126800BE145B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38C06171CF5126800BE145B /* MainViewController.xib */; };
+		C38C061D1CF5126800BE145B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C38C06171CF5126800BE145B /* MainViewController.xib */; };
 		C3FA18901CF4F85400061475 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FA188F1CF4F85400061475 /* AppDelegate.swift */; };
 		C3FA18921CF4F85400061475 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3FA18911CF4F85400061475 /* Assets.xcassets */; };
 		C3FA18951CF4F85400061475 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FA18931CF4F85400061475 /* MainMenu.xib */; };
@@ -32,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C38C06161CF5126800BE145B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C38C06171CF5126800BE145B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		C3FA188C1CF4F85400061475 /* whbh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whbh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FA188F1CF4F85400061475 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3FA18911CF4F85400061475 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +104,8 @@
 				C3FA188F1CF4F85400061475 /* AppDelegate.swift */,
 				C3FA18911CF4F85400061475 /* Assets.xcassets */,
 				C3FA18931CF4F85400061475 /* MainMenu.xib */,
+				C38C06161CF5126800BE145B /* MainViewController.swift */,
+				C38C06171CF5126800BE145B /* MainViewController.xib */,
 				C3FA18961CF4F85400061475 /* Info.plist */,
 			);
 			path = whbh;
@@ -224,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3FA18921CF4F85400061475 /* Assets.xcassets in Resources */,
+				C38C061B1CF5126800BE145B /* MainViewController.xib in Resources */,
 				C3FA18951CF4F85400061475 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38C061C1CF5126800BE145B /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C38C061D1CF5126800BE145B /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3FA18901CF4F85400061475 /* AppDelegate.swift in Sources */,
+				C38C06181CF5126800BE145B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3FA18A01CF4F85400061475 /* whbhTests.swift in Sources */,
+				C38C06191CF5126800BE145B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3FA18AB1CF4F85400061475 /* whbhUITests.swift in Sources */,
+				C38C061A1CF5126800BE145B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +487,7 @@
 				C3FA18B11CF4F85400061475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3FA18B21CF4F85400061475 /* Build configuration list for PBXNativeTarget "whbhTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +496,7 @@
 				C3FA18B41CF4F85400061475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C3FA18B51CF4F85400061475 /* Build configuration list for PBXNativeTarget "whbhUITests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +505,7 @@
 				C3FA18B71CF4F85400061475 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
