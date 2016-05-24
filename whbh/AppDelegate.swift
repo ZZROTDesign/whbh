@@ -27,15 +27,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         popover.contentViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         
-        /*
-        // Menu options -- pre popover
-        let menu = NSMenu()
-        
-        menu.addItem(NSMenuItem(title: "Start timer", action: #selector(AppDelegate.showMenu(_:)), keyEquivalent: "P"))
-        menu.addItem(NSMenuItem.separatorItem())
-        menu.addItem(NSMenuItem(title: "Quit WHBH", action: #selector(NSTask.terminate), keyEquivalent: "q"))
-        statusItem.menu = menu
-        */
     }
     
     func showMenu(sender: AnyObject) {
