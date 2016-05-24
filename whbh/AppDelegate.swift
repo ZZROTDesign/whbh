@@ -18,9 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        let icon = NSImage(named: "statusMenu")
-        //icon.setTemplate(true)
-        icon?.template = true
+        let icon = NSImage(named: "menuIcon")
+        //icon?.template = true //Used for dark themes, not working
         
         statusItem.image = icon
         statusItem.menu = statusMenu
