@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //Add statusBarItem
         statusBarItem = statusBar.statusItemWithLength(-1)
-        statusBarItem.title = "\(minutes):\(seconds)"
+        statusBarItem.title = "0\(minutes):\(seconds)"
         
         menu.addItem(NSMenuItem(title: "Start Timer", action: #selector(AppDelegate.startTimer(_:)), keyEquivalent: ""))
         menu.addItem(NSMenuItem(title: "Reset Timer", action: #selector(AppDelegate.resetTimer(_:)), keyEquivalent: ""))
@@ -70,7 +70,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             seconds = 0
         }
         
-        statusBarItem.title = "\(minutes):\(seconds)"
+        if minutes > 9 {
+            statusBarItem.title = "\(minutes):\(seconds)"
+        }
+        else {
+            statusBarItem.title = "0\(minutes):\(seconds)"
+        }
+        
+        
     }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
