@@ -22,6 +22,7 @@ class MainViewController: NSViewController {
     var minutes = 0
     var hours = 0
     var timer = NSTimer()
+    var timerRunning = false
     
     var WORK_TIME = 25 //minutes
     var BREAK_TIME = 1 //minutes
@@ -29,7 +30,6 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     @IBAction func startTimerPressed(sender: AnyObject) {

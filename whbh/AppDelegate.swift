@@ -23,6 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var hours = 0
     var timer = NSTimer()
     
+    
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     
     let popover = NSPopover()
