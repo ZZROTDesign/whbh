@@ -15,14 +15,16 @@ class MainViewController: NSViewController {
     @IBOutlet weak var stopTimerButton: NSButton!
     @IBOutlet weak var restartTimerButton: NSButton!
     @IBOutlet weak var quitButton: NSButton!
+    @IBOutlet weak var breakTimeBox: NSTextField!
+    @IBOutlet weak var WorkTimeBox: NSTextField!
     
     var seconds = 0
     var minutes = 0
     var hours = 0
     var timer = NSTimer()
     
-    var INTERVAL_BETWEEN_BREAKS = 25 //minutes
-    var BREAK_TIME = 5 //minutes
+    var WORK_TIME = 25 //minutes
+    var BREAK_TIME = 1 //minutes
     var onBreak = false
     
     override func viewDidLoad() {
@@ -34,12 +36,17 @@ class MainViewController: NSViewController {
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     
-    @IBAction func stopTimerPressed(sender: AnyObject) {
-        stopTimer(sender)
+    @IBAction func stopTimerPressed(sender: AnyObject?) {
+        stopTimer(self)
     }
     
-    @IBAction func restartTimerPressed(sender: AnyObject) {
-        resetTimer(sender)
+    @IBAction func restartTimerPressed(sender: AnyObject?) {
+        resetTimer(self)
+    }
+    
+    func startBreak(sender: AnyObject?) {
+        resetTimer(self)
+        startTimer(self)
     }
     
     func startTimer(sender: AnyObject) {
@@ -70,27 +77,61 @@ class MainViewController: NSViewController {
             seconds = 0
         }
         
-        if !onBreak && minutes == INTERVAL_BETWEEN_BREAKS {
+        if onBreak == false && minutes == WORK_TIME {
             onBreak = true
             timeLabel.stringValue = "ON BREAK!"
+            print("On break") //console logging
+            startBreak(self)
             
         }
-        if onBreak && minutes == BREAK_TIME {
+        if onBreak == true && minutes == BREAK_TIME {
             onBreak = false
+            resetTimer(self)
             startTimer(self)
         }
         if minutes > 9 {
+            if seconds < 10 {
+                timeLabel.stringValue = "\(minutes):0\(seconds)"
+            } else {
             timeLabel.stringValue =  "\(minutes):\(seconds)"
+            }
         }
         else {
+            if seconds < 10 {
+                timeLabel.stringValue = "\(minutes):0\(seconds)"
+            } else {
             timeLabel.stringValue = ("0\(minutes):\(seconds)")
+            }
         }
         
     }
     
-    func breakTimer(sender: AnyObject?) {
-        
+    //Break and work time setters
+    @IBAction func subtractBreak(sender: AnyObject) {
+        if BREAK_TIME > 0 {
+            BREAK_TIME -= 1
+        }
+        breakTimeBox.stringValue = "\(BREAK_TIME)"
     }
+    
+    @IBAction func addBreak(sender: AnyObject) {
+        BREAK_TIME += 1
+        breakTimeBox.stringValue = "\(BREAK_TIME)"
+    }
+    
+    @IBAction func subtractWork(sender: AnyObject) {
+        if WORK_TIME > 0 {
+            WORK_TIME -= 1
+        }
+        WorkTimeBox.stringValue = "\(WORK_TIME)"
+    }
+    
+    @IBAction func addWork(sender: AnyObject) {
+        WORK_TIME += 1
+        WorkTimeBox.stringValue = "\(WORK_TIME)"
+    }
+
+    
     
     // Quit on button press
     @IBAction func quitButtonClicked(sender: AnyObject) {

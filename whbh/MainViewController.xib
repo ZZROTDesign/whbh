@@ -7,6 +7,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="whbh" customModuleProvider="target">
             <connections>
+                <outlet property="WorkTimeBox" destination="uke-H2-0z0" id="2iF-Hm-UGh"/>
+                <outlet property="breakTimeBox" destination="wc4-de-YsO" id="lYj-rx-NLO"/>
                 <outlet property="quitButton" destination="b8h-Lx-GXf" id="jbp-Or-3PU"/>
                 <outlet property="restartTimerButton" destination="d5Z-KI-OdC" id="LAq-K9-0Oo"/>
                 <outlet property="startTimerButton" destination="4kY-CD-e15" id="Ewz-lH-Y0G"/>
@@ -31,18 +33,8 @@
                         <action selector="startTimerPressed:" target="-2" id="uh0-PQ-bTw"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvb-8V-P4g">
-                    <rect key="frame" x="187" y="135" width="107" height="32"/>
-                    <buttonCell key="cell" type="push" title="Stop Timer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O6a-Sm-zcf">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="stopTimerPressed:" target="-2" id="v23-cx-Avd"/>
-                    </connections>
-                </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d5Z-KI-OdC">
-                    <rect key="frame" x="179" y="102" width="123" height="32"/>
+                    <rect key="frame" x="179" y="129" width="123" height="32"/>
                     <buttonCell key="cell" type="push" title="Restart Timer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="okq-ro-uVj">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -67,8 +59,16 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anO-79-Wcy">
+                    <rect key="frame" x="129" y="216" width="223" height="36"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Click Start Timer to begin" id="rex-3J-tXi">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b8h-Lx-GXf">
-                    <rect key="frame" x="413" y="-7" width="66" height="32"/>
+                    <rect key="frame" x="420" y="-7" width="66" height="32"/>
                     <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H5U-lt-Vcv">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
@@ -77,12 +77,86 @@
                         <action selector="quitButtonClicked:" target="-2" id="rN9-dN-Oxd"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anO-79-Wcy">
-                    <rect key="frame" x="129" y="216" width="223" height="36"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" placeholderString="Click Start Timer to begin" id="rex-3J-tXi">
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="URj-NS-uI5">
+                    <rect key="frame" x="266" y="65" width="49" height="32"/>
+                    <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JJB-if-hGu">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addBreak:" target="-2" id="3Y4-du-Yrs"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VP6-iQ-ktv">
+                    <rect key="frame" x="165" y="63" width="47" height="32"/>
+                    <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fny-qr-Iiw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="subtractBreak:" target="-2" id="nnc-88-abu"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOh-74-Rqj">
+                    <rect key="frame" x="201" y="99" width="73" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Break Time" id="0cB-lc-gKl">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dex-Ir-4fZ">
+                    <rect key="frame" x="266" y="22" width="49" height="32"/>
+                    <buttonCell key="cell" type="push" title="+" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2WX-yr-0vb">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addWork:" target="-2" id="xYd-uy-Xiv"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjL-YW-xk3">
+                    <rect key="frame" x="165" y="20" width="47" height="32"/>
+                    <buttonCell key="cell" type="push" title="-" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oiH-JE-iYy">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="subtractWork:" target="-2" id="JS9-mm-vsY"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezX-4d-VX8">
+                    <rect key="frame" x="201" y="49" width="69" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Work Time" id="KIb-Gr-MTm">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wc4-de-YsO">
+                    <rect key="frame" x="212" y="69" width="54" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="5" drawsBackground="YES" id="2bZ-Qr-ZhW">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvb-8V-P4g">
+                    <rect key="frame" x="186" y="151" width="107" height="32"/>
+                    <buttonCell key="cell" type="push" title="Stop Timer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="O6a-Sm-zcf">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="stopTimerPressed:" target="-2" id="v23-cx-Avd"/>
+                    </connections>
+                </button>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uke-H2-0z0">
+                    <rect key="frame" x="212" y="27" width="54" height="22"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" placeholderString="25" drawsBackground="YES" id="QUH-3O-tYg">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
