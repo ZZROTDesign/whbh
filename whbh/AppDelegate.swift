@@ -13,6 +13,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var statusMenu: NSMenu!
+    var statusBar = NSStatusBar.systemStatusBar()
+    var statusBarItem : NSStatusItem = NSStatusItem()
+    var menu: NSMenu = NSMenu()
+    var menuItem : NSMenuItem = NSMenuItem()
+    
+    var seconds = 0
+    var minutes = 0
+    var hours = 0
+    var timer = NSTimer()
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     
@@ -64,6 +73,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
     }
-
+    
 }
 
