@@ -21,6 +21,10 @@ class MainViewController: NSViewController {
     var hours = 0
     var timer = NSTimer()
     
+    var INTERVAL_BETWEEN_BREAKS = 25 //minutes
+    var BREAK_TIME = 5 //minutes
+    var onBreak = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -66,13 +70,29 @@ class MainViewController: NSViewController {
             seconds = 0
         }
         
+        if !onBreak && minutes == INTERVAL_BETWEEN_BREAKS {
+            onBreak = true
+            timeLabel.stringValue = "ON BREAK!"
+            
+        }
+        if onBreak && minutes == BREAK_TIME {
+            onBreak = false
+            startTimer(self)
+        }
         if minutes > 9 {
             timeLabel.stringValue =  "\(minutes):\(seconds)"
         }
         else {
             timeLabel.stringValue = ("0\(minutes):\(seconds)")
         }
+        
     }
+    
+    func breakTimer(sender: AnyObject?) {
+        
+    }
+    
+    // Quit on button press
     @IBAction func quitButtonClicked(sender: AnyObject) {
         NSApplication.sharedApplication().terminate(self)
     }
